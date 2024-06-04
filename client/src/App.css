@@ -1,0 +1,96 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+form {
+    margin-inline: auto;
+    margin-block-start: 40px;
+    margin-block-end: 10px;
+    width: 50%;
+}
+
+.form-group {
+    position: relative;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.form-group input {
+    height: 40px;
+    padding: 0px 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 25px;
+
+    transition-property: border, outline;
+    transition: 250ms ease-out;
+}
+
+.form-group input:focus-visible {
+    border: 2px solid transparent;
+    outline: 2px solid skyblue;
+}
+
+.form-group button[type="submit"] {
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.form-group button[type="submit"] svg.search-icon {
+    display: block;
+    margin: auto 0;
+    transition-property: scale, color;
+    transition: 350ms ease-in-out;
+}
+
+.form-group button[type="submit"]:hover svg.search-icon {
+    scale: 1.1;
+    color: skyblue;
+}
+
+
+#movies {
+    margin-block-start: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    row-gap: 20px;
+    column-gap: 10px;
+}
+
+#movies .movie {
+    border: 2px solid red;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+        justify-content: space-between;
+    gap: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#movies .movie .movie-image {
+    width: 300px;
+    height: 400px;
+    max-height: 400px;
+}
+
+#movies .movie .movie-info {
+    flex: 1;
+}
+
+
+#movie {
+    justify-self: center;
+    margin: 0 auto;
+    width: 100%;
+    border: 2px solid green;
+}
+
