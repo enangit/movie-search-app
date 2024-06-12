@@ -1,23 +1,28 @@
 import React from 'react';
 import Icon from "@mui/material/Icon";
+import movieImgPlaceholder from "../assets/placeholder.png";
 
 type MovieProp = {
     movie: {
-        Poster: string
-        Title: string
-        Genre: string
-        Plot: string
-        Actors: string
-        imdbRating: string
-        Director: string
+        Poster?: string
+        Title?: string
+        Genre?: string
+        Plot?: string
+        Actors?: string
+        imdbRating?: string
+        Director?: string
     }
+    className?: string
 }
 
-const Movie: React.FunctionComponent<MovieProp> = ({ movie }) => {
+const Movie: React.FunctionComponent<MovieProp> = ({ movie, ...rest }) => {
+
     return (
-        <div id='movie'>
+        <div id='movie' {...rest}>
             <div className="movie-img">
-                <img src={movie.Poster} alt="movie image" />
+                <img
+                    src={movie.Poster !== "N/A" ? movie.Poster : movieImgPlaceholder}
+                    alt="movie image" />
             </div>
             <div className="movie-info">
                 <h3 className="title">{movie.Title}</h3>

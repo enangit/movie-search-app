@@ -12,7 +12,7 @@ function App() {
     const searchWordRef = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {
-        if(movies) {
+        if (movies) {
             setMovie(null)
         }
     }, [movies]);
@@ -52,9 +52,6 @@ function App() {
         }
     }
 
-    console.log(movies);
-
-
     return (
         <div>
             <header>
@@ -70,20 +67,18 @@ function App() {
             </form>
             <main>
                 {error && <h2>Sorry, there's an error! Please try again.</h2>}
-                {error === null && isLoading ? <p>Loading ....</p> : null}
-                {movies ?
+                {!movie && !movies && !isLoading && <p> Search a movie... </p>}
+                {isLoading ? <p>Loading ....</p> : null}
+                {
+                    movies &&
                     (<Movies
                         movies={movies}
                         setMovies={setMovies}
                         setMovie={setMovie}
                     />)
-                    :
-                    (<p>
-                        Search a movie....
-                    </p>)
                 }
                 {
-                    movie && <Movie movie={movie} ></Movie>
+                    movie && <Movie className="individual-movie" movie={movie} ></Movie>
                 }
             </main>
         </div >
